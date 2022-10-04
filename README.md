@@ -1,17 +1,7 @@
-# React + Vite + Tailwind with Context API Setup Starter Template
+A scrolling app that fetch data from reddit and organize it in a nicer way
 
-## What is this?
 
-A starter template for a React + Vite + Tailwind project with Context API setup. This template is a good starting point for a new project.
-
-## It includes:
-
-    > React
-    > Vite
-    > Tailwind
-    > Context API
-
-## How to use it:
+## How to use start the app on local server:
 
     > Clone this repository
     > Run `npm install`
