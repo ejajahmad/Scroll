@@ -11,6 +11,7 @@
     "axios": "^0.27.2",
     "decode-html": "^2.0.0",
     "file-saver": "^2.0.5",
+    "firebase": "^9.12.1",
     "html-react-parser": "^3.0.4",
     "moment": "^2.29.4",
     "primeicons": "^5.0.0",

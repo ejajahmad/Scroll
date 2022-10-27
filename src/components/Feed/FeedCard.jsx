@@ -10,6 +10,8 @@ import { getCommentsBySubredditPostId, getPostsBySubreddit } from "../../service
 import parse from "html-react-parser";
 import { useLocalStorage } from "../../services/hooks/customHooks";
 import { useLocation } from "react-router-dom";
+import { useStateContext } from "../../../context/StateContext";
+import { writeFirebaseData } from "../../services/firebaseConfig";
 
 export function FeedCard({
   post,
@@ -22,6 +24,7 @@ export function FeedCard({
   blur = false,
   setRefreshPosts,
 }) {
+  const { user } = useStateContext();
   const [blurToggle, setBlurToggle] = useState(blur);
   const [videoToggle, setVideoToggle] = useState(false);
   const [comments, setComments] = useState([]);
@@ -39,7 +42,10 @@ export function FeedCard({
     } else {
       setSavedPosts([...savedPosts, post]);
     }
-    setRefreshPosts((toggle) => !toggle);
+
+    if (user?.uid) {
+      writeFirebaseData(user.uid, "savedPosts", savedPosts);
+    }
   };
 
   useEffect(() => {
